@@ -15,7 +15,14 @@ const languageMap = {
 };
 
 const LanguageSelect = () => {
-  const selected = localStorage.getItem("i18nextLng") || "en";
+
+  if (localStorage.getItem("i18nextLng") === "ru" ||
+    localStorage.getItem("i18nextLng") === "ru-RU") {
+    var selected = "ru";
+  } else {
+    var selected = "en";//localStorage.getItem("i18nextLng") || "en";
+  }
+  console.log(localStorage.getItem("i18nextLng"))
   const { t } = useTranslation();
 
   const [menuAnchor, setMenuAnchor] = React.useState(null);
