@@ -3,11 +3,8 @@ import { useTranslation } from "react-i18next";
 import i18next from "i18next";
 
 import ArrowDropDown from '@mui/icons-material/ArrowDropDown';
-import Button from "@mui/material/Button";
-import Popover from "@mui/material/Popover";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListSubheader from "@mui/material/ListSubheader";
+import { Button, Popover, List, ListItem, ListSubheader }
+  from "@mui/material";
 
 const languageMap = {
   en: { label: "English", dir: "ltr", active: true },

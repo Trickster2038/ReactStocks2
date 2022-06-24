@@ -1,31 +1,21 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MenuIcon from '@mui/icons-material/Menu';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 
+import {
+  Toolbar, AppBar, Divider, List, ListItem, Box, CssBaseline,
+  ListItemButton, ListItemIcon, ListItemText, IconButton,
+  Typography, Drawer
+} from "@mui/material";
+
+import MenuIcon from '@mui/icons-material/Menu';
 import StocksOblIcon from '@mui/icons-material/StickyNote2';
 import ForexIcon from '@mui/icons-material/CurrencyExchange';
 import ComodiesIcon from '@mui/icons-material/Inventory';
 import IndexiesEtfIcon from '@mui/icons-material/ShowChart';
 import CryptoIcon from '@mui/icons-material/CurrencyBitcoin';
-
 import SettingsIcon from '@mui/icons-material/SettingsApplications';
 import InfoIcon from '@mui/icons-material/Info';
 
 import { withTranslation } from 'react-i18next';
-
-import LanguageSelect from './languageSelect';
 
 const drawerWidth = 240;
 
@@ -89,9 +79,6 @@ class Menu extends React.Component {
             </ListItem>
 
           ))}
-          <ListItem>
-            <LanguageSelect />
-          </ListItem>
         </List>
       </div>
     );
