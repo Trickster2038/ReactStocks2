@@ -5,13 +5,11 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -23,8 +21,11 @@ import IndexiesEtfIcon from '@mui/icons-material/ShowChart';
 import CryptoIcon from '@mui/icons-material/CurrencyBitcoin';
 
 import SettingsIcon from '@mui/icons-material/SettingsApplications';
+import InfoIcon from '@mui/icons-material/Info';
 
 import { withTranslation } from 'react-i18next';
+
+import LanguageSelect from '../languageSelect';
 
 const drawerWidth = 240;
 
@@ -46,16 +47,17 @@ class ResponsiveDrawer extends React.Component {
   render() {
 
     const menu_entries_assets =
-      [{ name: 'forex', icon: <ForexIcon />},
-      { name: 'comodies', icon: <ComodiesIcon />},
-      { name: 'indexies', icon: <IndexiesEtfIcon />},
-      { name: 'stocks', icon: <StocksOblIcon />},
-      { name: 'crypto', icon: <CryptoIcon />},
-      { name: 'etf', icon: <IndexiesEtfIcon />},
-      { name: 'obligations', icon: <StocksOblIcon />}];
+      [{ name: 'forex', icon: <ForexIcon /> },
+      { name: 'comodies', icon: <ComodiesIcon /> },
+      { name: 'indexies', icon: <IndexiesEtfIcon /> },
+      { name: 'stocks', icon: <StocksOblIcon /> },
+      { name: 'crypto', icon: <CryptoIcon /> },
+      { name: 'etf', icon: <IndexiesEtfIcon /> },
+      { name: 'obligations', icon: <StocksOblIcon /> }];
 
     const menu_entries_bottom =
-      [{ name: 'settings', icon: <SettingsIcon />}];
+      [{ name: 'settings', icon: <SettingsIcon /> },
+      { name: 'about', icon: <InfoIcon /> },];
 
     const drawer = (
       <div>
@@ -84,7 +86,11 @@ class ResponsiveDrawer extends React.Component {
                 <ListItemText primary={this.props.t(obj.name)} />
               </ListItemButton>
             </ListItem>
+
           ))}
+          <ListItem>
+            <LanguageSelect />
+          </ListItem>
         </List>
       </div>
     );
@@ -185,13 +191,5 @@ class ResponsiveDrawer extends React.Component {
     );
   }
 }
-
-// ResponsiveDrawer.propTypes = {
-//   /**
-//    * Injected by the documentation to work in an iframe.
-//    * You won't need it on your project.
-//    */
-//   window: PropTypes.func,
-// };
 
 export default withTranslation()(ResponsiveDrawer);

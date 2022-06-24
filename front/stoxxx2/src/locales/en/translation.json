@@ -1,5 +1,13 @@
 {
    "select_language": "Select language",
    "caption0": "Caption EN i18n",
-   "stocks": "Stocks"
+   "forex": "Forex",
+   "comodies": "Comodies",
+   "indexies": "Indexies",
+   "stocks": "Stocks",
+   "crypto": "Crypto",
+   "etf": "ETF",
+   "obligations": "Obligations",
+   "settings": "Settings",
+   "about": "About"
 }

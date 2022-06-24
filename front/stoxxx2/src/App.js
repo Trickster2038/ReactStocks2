@@ -3,12 +3,14 @@ import './App.css';
 import { useTranslation } from 'react-i18next';
 import LanguageSelect from "./languageSelect";
 import ResponsiveDrawer from './components/menu';
+import { Toolbar } from '@mui/material';
 
 function App() {
   const { t } = useTranslation();
 
   return (
     <div>
+      <Toolbar />
       <div className="App">
         <header className="App-header">
 
