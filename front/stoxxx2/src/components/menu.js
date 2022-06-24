@@ -25,11 +25,11 @@ import InfoIcon from '@mui/icons-material/Info';
 
 import { withTranslation } from 'react-i18next';
 
-import LanguageSelect from '../languageSelect';
+import LanguageSelect from './languageSelect';
 
 const drawerWidth = 240;
 
-class ResponsiveDrawer extends React.Component {
+class Menu extends React.Component {
 
   constructor(props) {
     super(props);
@@ -38,6 +38,7 @@ class ResponsiveDrawer extends React.Component {
 
   onListClicked = (elem) => {
     console.log(elem);
+    window.location.replace("/" + elem);
   };
 
   handleDrawerToggle = () => {
@@ -159,7 +160,7 @@ class ResponsiveDrawer extends React.Component {
           sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
         >
           <Toolbar />
-          <Typography paragraph>
+          {/* <Typography paragraph>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
             enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
@@ -185,11 +186,11 @@ class ResponsiveDrawer extends React.Component {
             tristique sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
             eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
             posuere sollicitudin aliquam ultrices sagittis orci a.
-          </Typography>
+          </Typography> */}
         </Box>
       </Box>
     );
   }
 }
 
-export default withTranslation()(ResponsiveDrawer);
+export default withTranslation()(Menu);
