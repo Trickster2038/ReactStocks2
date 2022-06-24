@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -17,11 +16,15 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
-import StockIcon from '@mui/icons-material/StickyNote2';
+import StocksOblIcon from '@mui/icons-material/StickyNote2';
+import ForexIcon from '@mui/icons-material/CurrencyExchange';
+import ComodiesIcon from '@mui/icons-material/Inventory';
+import IndexiesEtfIcon from '@mui/icons-material/ShowChart';
+import CryptoIcon from '@mui/icons-material/CurrencyBitcoin';
 
-// import { useTranslation } from "react-i18next";
+import SettingsIcon from '@mui/icons-material/SettingsApplications';
+
 import { withTranslation } from 'react-i18next';
-import { StickyNote2 } from '@mui/icons-material';
 
 const drawerWidth = 240;
 
@@ -29,56 +32,56 @@ class ResponsiveDrawer extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {mobileOpen: false};
+    this.state = { mobileOpen: false };
   }
 
+  onListClicked = (elem) => {
+    console.log(elem);
+  };
+
   handleDrawerToggle = () => {
-    console.log("menu click");
-    this.setState({mobileOpen: !this.state.mobileOpen});
-    // this.state.mobileOpen = !this.state.mobileOpen;
+    this.setState({ mobileOpen: !this.state.mobileOpen });
   };
 
   render() {
-    // const { t } = this.props.t;
-    const { window } = this.props;
-    // this.state = {
-    //   mobileOpen: false
-    // };
-    // const [mobileOpen, setMobileOpen] = React.useState(false);
 
-    const menu_entries_assets = ['forex', 'comodies', 'indixies',
-      'stocks', 'crypto', 'etf', 'obligations'];
+    const menu_entries_assets =
+      [{ name: 'forex', icon: <ForexIcon />},
+      { name: 'comodies', icon: <ComodiesIcon />},
+      { name: 'indexies', icon: <IndexiesEtfIcon />},
+      { name: 'stocks', icon: <StocksOblIcon />},
+      { name: 'crypto', icon: <CryptoIcon />},
+      { name: 'etf', icon: <IndexiesEtfIcon />},
+      { name: 'obligations', icon: <StocksOblIcon />}];
 
-    const menu_entries_assets_trans =
-      menu_entries_assets.map((text, index) =>
-      this.props.t(text))
-    const menu_entries_assets_icons = [<StockIcon />, <StockIcon />, <StockIcon />]
+    const menu_entries_bottom =
+      [{ name: 'settings', icon: <SettingsIcon />}];
 
     const drawer = (
       <div>
         <Toolbar />
         <Divider />
         <List>
-          {menu_entries_assets_trans.map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton onClick={console.log("ggl")}>
+          {menu_entries_assets.map((obj, index) => (
+            <ListItem key={obj.translate} disablePadding>
+              <ListItemButton onClick={() => this.onListClicked(obj.name)}>
                 <ListItemIcon>
-                  {menu_entries_assets_icons[index]}
+                  {obj.icon}
                 </ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemText primary={this.props.t(obj.name)} />
               </ListItemButton>
             </ListItem>
           ))}
         </List>
         <Divider />
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
+          {menu_entries_bottom.map((obj, index) => (
+            <ListItem key={obj.translate} disablePadding>
+              <ListItemButton onClick={() => this.onListClicked(obj.name)}>
                 <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  {obj.icon}
                 </ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemText primary={this.props.t(obj.name)} />
               </ListItemButton>
             </ListItem>
           ))}
@@ -86,7 +89,6 @@ class ResponsiveDrawer extends React.Component {
       </div>
     );
 
-    // const container = window !== undefined ? () => window().document.body : undefined;
     const container = document.body;
 
     return (
@@ -110,7 +112,7 @@ class ResponsiveDrawer extends React.Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap component="div">
-              Responsive drawer
+              StoxxX
             </Typography>
           </Toolbar>
         </AppBar>
@@ -192,4 +194,4 @@ class ResponsiveDrawer extends React.Component {
 //   window: PropTypes.func,
 // };
 
-export default withTranslation() (ResponsiveDrawer);
+export default withTranslation()(ResponsiveDrawer);

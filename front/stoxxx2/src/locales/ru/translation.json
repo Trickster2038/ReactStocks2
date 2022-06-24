@@ -1,5 +1,12 @@
 {
     "select_language": "Выберите язык",
     "caption0": "Заголовок RU i18n",
-    "stocks": "Акции"
+    "forex": "Форекс",
+    "comodies": "Товары",
+    "indexies": "Индексы",
+    "stocks": "Акции",
+    "crypto": "Крипто",
+    "etf": "ETF",
+    "obligations": "Облигации",
+    "settings": "Настройки"
 }
