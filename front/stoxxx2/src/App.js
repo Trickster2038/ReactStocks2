@@ -16,9 +16,9 @@ function App() {
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
-          <dix>
+          <div>
             <ResponsiveDrawer />
-          </dix>
+          </div>
           <div className="language-select">
             <LanguageSelect />
           </div>

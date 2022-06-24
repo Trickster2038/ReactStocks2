@@ -30,22 +30,30 @@ function ResponsiveDrawer(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
+  const menu_entries_assets = ['forex', 'comodies', 'indixies',
+    'stocks', 'crypto', 'etf', 'obligations'];
+
+  const menu_entries_assets_trans =
+    menu_entries_assets.map((text, index) =>
+      t(text))
+  const menu_entries_assets_icons = [<StockIcon />, <StockIcon />, <StockIcon />]
+
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+
+
 
   const drawer = (
     <div>
       <Toolbar />
       <Divider />
       <List>
-        {[t('stocks'), 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+        {menu_entries_assets_trans.map((text, index) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton>
+            <ListItemButton onClick={console.log("ggl")}>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                {index === 0 ? <StockIcon/> : <></>}
-                {index === 1 ? <StockIcon/> : <></>}
+                {menu_entries_assets_icons[index]}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
