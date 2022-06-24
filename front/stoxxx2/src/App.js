@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { useTranslation } from 'react-i18next';
 import LanguageSelect from "./languageSelect";
+import ResponsiveDrawer from './components/menu';
 
 function App() {
   const { t } = useTranslation();
@@ -15,6 +16,9 @@ function App() {
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
+          <dix>
+            <ResponsiveDrawer />
+          </dix>
           <div className="language-select">
             <LanguageSelect />
           </div>
