@@ -10,9 +10,10 @@ import AboutPage from './components/aboutPage';
 import SearchPage from './components/searchPage';
 import React from 'react';
 
+export const ApiContext = React.createContext('light');
+
 function App() {
   // const { t } = useTranslation();
-  const PageContext = React.createContext(<AboutPage />);
 
   return (
     <div>

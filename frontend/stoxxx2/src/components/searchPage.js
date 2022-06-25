@@ -33,7 +33,7 @@ class SearchPage extends Component {
                     <SearchIcon />
                 </Paper>
                 <div>
-                    <SearchList query={this.state.query}/>
+                    <SearchList query={this.state.query} />
                 </div>
             </div>
         )
