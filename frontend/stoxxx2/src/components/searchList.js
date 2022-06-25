@@ -82,15 +82,14 @@ class SearchList extends Component {
                 ))
             }
             const columns = [
-                { field: 'name', headerName: 'Name', width: 300 },
-                { field: 'symbol', headerName: 'Symbol', width: 100 },
-                { field: 'exchange', headerName: 'Exchange', width: 100 },
-                { field: 'pair_type', headerName: 'Type', width: 100 },
+                { field: 'name', headerName: 'Name', width: 200 },
+                { field: 'symbol', headerName: 'Symbol' },
+                { field: 'exchange', headerName: 'Exchange' },,
                 { field: 'country', headerName: 'Country', width: 200 }
             ]
             // this.call_api()
             return (
-                <div style={{ margin: 'auto', height: 700, width: '70%' }}>
+                <div style={{ margin: 'auto', height: 700, marginTop: 16 }}>
                     {/* {console.log('render grid ' + this.props.query)} */}
                     <DataGrid
                         rows={items}

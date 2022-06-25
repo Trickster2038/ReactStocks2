@@ -142,12 +142,18 @@ class Menu extends React.Component {
             {drawer}
           </Drawer>
         </Box>
+        {/* <div id="pageplace"> */}
         <Box
           component="main"
-          sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+          sx={{
+            flexGrow: 1, p: 3, width: {
+              sm: `calc(100% - ${drawerWidth}px)`
+            }
+          }}
         >
           {this.props.page}
         </Box>
+        {/* </div> */}
       </Box>
     );
   }

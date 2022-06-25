@@ -27,6 +27,10 @@ def search(name):
     if ok:
         for x in search_result:
             if x.exchange.lower() in exchanges:
+                country = x.country.split()
+                x.country = ""
+                for c in country:
+                    x.country += c[0].upper() + c[1:] + " "
                 a.append(json.loads(str(x)))
     json1 = {'stocks':a}
     # return json.dumps(json1, indent=4)

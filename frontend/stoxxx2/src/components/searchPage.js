@@ -19,7 +19,7 @@ class SearchPage extends Component {
 
     render() {
         return (
-            <div>
+            <div id="searchpage">
                 <Paper
                     component="form"
                     sx={{ p: '2px 4px', display: 'flex', alignItems: 'center' }}
