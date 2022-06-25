@@ -9,13 +9,9 @@ import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <Suspense fallback="...">
-  //   <React.StrictMode>
   <BrowserRouter>
     <App />
   </BrowserRouter>,
-  //   </React.StrictMode>
-  // </Suspense>
 );
 
 // If you want to start measuring performance in your app, pass a function
