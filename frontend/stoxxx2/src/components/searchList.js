@@ -1,9 +1,8 @@
 import { Component } from "react";
 import { DataGrid } from '@mui/x-data-grid';
+import { withTranslation } from 'react-i18next';
 
 class SearchList extends Component {
-
-    static exhanges_const = ["rr", "nyse"];
 
     constructor(props) {
         super(props);
@@ -16,18 +15,11 @@ class SearchList extends Component {
     }
 
     call_api() {
-        let exchanges = SearchList.exhanges_const
-        let exchanges_params = ""
-        for (let i in exchanges) {
-            exchanges_params += "&exchanges=" + exchanges[i]
-        }
 
         let url = process.env.REACT_APP_API_GATEWAY + "search/" +
-            this.props.query + "?type=" + this.props.category + exchanges_params
+            this.props.query + "?type=" + this.props.category
 
-        // console.log(url)
         fetch(url)
-            // + this.props.asset_name())
             .then(res => res.json())
             .then(
                 (result) => {
@@ -36,8 +28,6 @@ class SearchList extends Component {
                         items: result.stocks,
                         error: false
                     });
-                    console.log("api search")
-                    console.log(result)
                 },
                 // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(),
                 // чтобы не перехватывать исключения из ошибок в самих компонентах.
@@ -57,24 +47,28 @@ class SearchList extends Component {
 
     componentDidUpdate(prevProps) {
         if (this.props.query !== prevProps.query) {
-            console.log("search upd")
             this.call_api()
         }
     }
 
     cellClickHandler(params) {
-        const name = params.row.name
-        const url = '/stats?symbol=' + params.row.symbol + '&country=' + params.row.country
-        console.log(url)
+        const url = '/stats?symbol=' + params.row.symbol
+            + '&tag=' + params.row.tag
+            + '&back=' + params.row.pair_type
         window.location.replace(url);
     }
 
     render() {
         const { error, error_message, isLoaded, items } = this.state;
         if (error) {
-            return <div>Ошибка: {error_message}</div>;
+            return <div class="searchlist-result">
+                {/* <p>{this.props.t("error")}: {error_message}</p> */}
+                <p>{this.props.t("empty")}</p>
+            </div>;
         } else if (!isLoaded) {
-            return <div>Загрузка...</div>;
+            return <div class="searchlist-result">
+                <p>{this.props.t("load")}...</p>
+            </div>;
         } else {
             {
                 items.map(item => (
@@ -82,35 +76,35 @@ class SearchList extends Component {
                 ))
             }
             const columns = [
-                { field: 'name', headerName: 'Name', width: 200 },
-                { field: 'symbol', headerName: 'Symbol' },
-                { field: 'exchange', headerName: 'Exchange' },,
-                { field: 'country', headerName: 'Country', width: 200 }
+                { field: 'name', headerName: this.props.t("name"), width: 200 },
+                { field: 'symbol', headerName: this.props.t("symbol") },
+                { field: 'exchange', headerName: this.props.t("exchange") }, ,
+                { field: 'country', headerName: this.props.t("country"), width: 200 }
             ]
-            // this.call_api()
-            return (
-                <div style={{ margin: 'auto', height: (items.length+1)*56, marginTop: 16 }}>
-                    {/* {console.log('render grid ' + this.props.query)} */}
-                    <DataGrid
-                        rows={items}
-                        columns={columns}
-                        // pageSize={10}
-                        // rowsPerPageOptions={[10]}
-                        onCellClick={this.cellClickHandler}
-                    />
-                </div>
-            );
+
+            if (items.length > 0) {
+                return (
+                    <div id="datagrid" class="searchlist-result" style={{
+                        margin: 'auto',
+                        marginTop: 16, height: (items.length + 1) * 56
+                    }}>
+                        <DataGrid
+                            rows={items}
+                            columns={columns}
+                            onCellClick={this.cellClickHandler}
+                        />
+                    </div>
+                );
+            } else {
+                return (
+                    <div class="searchlist-result">
+                        <p>{this.props.t("empty")}</p>
+                    </div>
+                );
+            }
         }
     }
 
-    // render() {
-
-    //     return (
-    //         <div>
-    //             {process.env.REACT_APP_API_GATEWAY}
-    //         </div>
-    //     )
-    // }
 }
 
-export default SearchList;
+export default withTranslation()(SearchList);

@@ -10,13 +10,11 @@ cors = CORS(app)
 # "indices, stocks, etfs, funds, commodities, 
 # currencies, cryptos, bonds, certificates, fxfutures"
 
-# http://127.0.0.1:5000/search/a?type=etfs&exchanges=rr&exchanges=nyse
+# http://127.0.0.1:5000/search/a?type=etfs
 @app.route("/search/<name>")
 @cross_origin()
 def search(name):
     asset_type = request.args.get('type')
-    exchanges = request.args.getlist('exchanges')
-    app.logger.info("exch-s: ", str(exchanges))
     ok = True
     try:
         search_result = investpy.search_quotes(text=name, products=[asset_type], n_results=50)
@@ -26,21 +24,35 @@ def search(name):
     a = []
     if ok:
         for x in search_result:
-            if x.exchange.lower() in exchanges:
-                country = x.country.split()
-                x.country = ""
-                for c in country:
-                    x.country += c[0].upper() + c[1:] + " "
-                a.append(json.loads(str(x)))
+            x.country = x.country or " - "
+            country = x.country.split()
+            x.country = ""
+            for c in country:
+                x.country += c[0].upper() + c[1:] + " "
+            if x.exchange == "":
+                x.exchange = " - "
+            a.append(json.loads(str(x)))
     json1 = {'stocks':a}
-    # return json.dumps(json1, indent=4)
     return json1
 
+# http://127.0.0.1:5000/info/dia?tag=/etfs/diamonds-trust
 @app.route("/info/<symbol>")
 @cross_origin()
 def stats(symbol):
-    country = request.args.get('country')
-    search_result = investpy.search_quotes(text=symbol, countries=[country], n_results=1)
+    tag = request.args.get('tag')
+    results = investpy.search_quotes(text=symbol, n_results=10)
+    search_result = ""
+    for x in results:
+        if x.tag == tag:
+            x.country = x.country or " - "
+            country = x.country.split() 
+            x.country = ""
+            for c in country:
+                x.country += c[0].upper() + c[1:] + " "
+            if x.exchange == "":
+                x.exchange = " - "
+            search_result = x
+            break
     info = json.loads(str(search_result))
     history = json.loads(str(search_result.retrieve_recent_data().to_json()))
     return {'info': info, 'history': history}

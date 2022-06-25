@@ -28,19 +28,19 @@ function App() {
            currencies, cryptos, bonds, certificates, fxfutures" */}
 
           <Route path="/forex" element=
-            {<Menu page={<SearchPage category="forex" />} />} />
+            {<Menu page={<SearchPage category="currencies" />} />} />
           <Route path="/comodies" element=
-            {<Menu page={<SearchPage category="comodies" />} />} />
+            {<Menu page={<SearchPage category="commodities" />} />} />
           <Route path="/indeces" element=
-            {<Menu page={<SearchPage category="indexies" />} />} />
+            {<Menu page={<SearchPage category="indices" />} />} />
           <Route path="/stocks" element=
             {<Menu page={<SearchPage category="stocks" />} />} />
           <Route path="/crypto" element=
-            {<Menu page={<SearchPage category="crypto" />} />} />
+            {<Menu page={<SearchPage category="cryptos" />} />} />
           <Route path="/etf" element=
-            {<Menu page={<SearchPage category="etf" />} />} />
+            {<Menu page={<SearchPage category="etfs" />} />} />
           <Route path="/obligations" element=
-            {<Menu page={<SearchPage category="obligations" />} />} />
+            {<Menu page={<SearchPage category="bonds" />} />} />
 
           <Route path="/" element={<AboutPage />} />
         </Routes>

@@ -1,6 +1,7 @@
 {
     "select_language": "Выберите язык",
     "caption0": "Заголовок RU i18n",
+
     "forex": "Форекс",
     "comodies": "Товары",
     "indices": "Индексы",
@@ -10,5 +11,14 @@
     "obligations": "Облигации",
     "settings": "Настройки",
     "about": "О нас",
-    "search": "Поиск"
+    "search": "Поиск",
+
+    "error": "Ошибка",
+    "empty": "Результаты не найдены",
+    "load": "Загрузка",
+
+    "name": "Название",
+    "symbol": "Тикер",
+    "exchange": "Биржа",
+    "country": "Страна"
 }

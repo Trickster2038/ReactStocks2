@@ -27,5 +27,7 @@ main {
   max-width: 100%;
 }
 
-
-
+.searhclist-result {
+  margin: 'auto';
+  margin-top: 16;
+}

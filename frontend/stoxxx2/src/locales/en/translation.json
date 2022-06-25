@@ -1,6 +1,7 @@
 {
    "select_language": "Select language",
    "caption0": "Caption EN i18n",
+
    "forex": "Forex",
    "comodies": "Comodies",
    "indices": "Indeces",
@@ -10,5 +11,14 @@
    "obligations": "Bonds",
    "settings": "Settings",
    "about": "About",
-   "search": "Search"
+   "search": "Search",
+
+   "error": "Error",
+   "empty": "No results found",
+   "load": "Loading",
+
+   "name": "Name",
+   "symbol": "Ticker",
+   "exchange": "Exchange",
+   "country": "Country"
 }
