@@ -89,13 +89,13 @@ class SearchList extends Component {
             ]
             // this.call_api()
             return (
-                <div style={{ margin: 'auto', height: 700, marginTop: 16 }}>
+                <div style={{ margin: 'auto', height: (items.length+1)*56, marginTop: 16 }}>
                     {/* {console.log('render grid ' + this.props.query)} */}
                     <DataGrid
                         rows={items}
                         columns={columns}
-                        pageSize={10}
-                        rowsPerPageOptions={[10]}
+                        // pageSize={10}
+                        // rowsPerPageOptions={[10]}
                         onCellClick={this.cellClickHandler}
                     />
                 </div>
