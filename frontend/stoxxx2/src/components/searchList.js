@@ -3,33 +3,49 @@ import { DataGrid } from '@mui/x-data-grid';
 
 class SearchList extends Component {
 
+    static exhanges_const = ["rr", "nyse"];
+
     constructor(props) {
         super(props);
         this.state = {
-            error: null,
+            error: false,
+            error_message: "",
             isLoaded: false,
             items: []
         };
     }
 
     call_api() {
-        // { console.log('api call ' + this.props.asset_name()) }
-        fetch("http://127.0.0.1:5000/search/a?type=etfs&exchanges=rr&exchanges=nyse")
+        let exchanges = SearchList.exhanges_const
+        let exchanges_params = ""
+        for (let i in exchanges) {
+            exchanges_params += "&exchanges=" + exchanges[i]
+        }
+
+        let url = process.env.REACT_APP_API_GATEWAY + "search/" +
+            this.props.query + "?type=" + this.props.category + exchanges_params
+
+        // console.log(url)
+        fetch(url)
             // + this.props.asset_name())
             .then(res => res.json())
             .then(
                 (result) => {
                     this.setState({
                         isLoaded: true,
-                        items: result.stocks
+                        items: result.stocks,
+                        error: false
                     });
+                    console.log("api search")
+                    console.log(result)
                 },
                 // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(),
                 // чтобы не перехватывать исключения из ошибок в самих компонентах.
-                (error) => {
+                (err) => {
                     this.setState({
                         isLoaded: true,
-                        error
+                        error_message: err.message,
+                        error: true,
                     });
                 }
             )
@@ -41,21 +57,22 @@ class SearchList extends Component {
 
     componentDidUpdate(prevProps) {
         if (this.props.query !== prevProps.query) {
+            console.log("search upd")
             this.call_api()
         }
     }
 
     cellClickHandler(params) {
         const name = params.row.name
-        const url = '/stats?symbol=' + params.row.symbol + '&country=' +  params.row.country
+        const url = '/stats?symbol=' + params.row.symbol + '&country=' + params.row.country
         console.log(url)
         window.location.replace(url);
     }
 
     render() {
-        const { error, isLoaded, items } = this.state;
+        const { error, error_message, isLoaded, items } = this.state;
         if (error) {
-            return <div>Ошибка: {error.message}</div>;
+            return <div>Ошибка: {error_message}</div>;
         } else if (!isLoaded) {
             return <div>Загрузка...</div>;
         } else {

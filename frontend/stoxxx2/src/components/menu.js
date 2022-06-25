@@ -40,7 +40,7 @@ class Menu extends React.Component {
     const menu_entries_assets =
       [{ name: 'forex', icon: <ForexIcon /> },
       { name: 'comodies', icon: <ComodiesIcon /> },
-      { name: 'indexies', icon: <IndexiesEtfIcon /> },
+      { name: 'indices', icon: <IndexiesEtfIcon /> },
       { name: 'stocks', icon: <StocksOblIcon /> },
       { name: 'crypto', icon: <CryptoIcon /> },
       { name: 'etf', icon: <IndexiesEtfIcon /> },

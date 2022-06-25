@@ -24,11 +24,14 @@ function App() {
           <Route path="/settings" element={<Menu page={<SettingsPage />} />} />
           <Route path="/about" element={<Menu page={<AboutPage />} />} />
 
+           {/* "indices, stocks, etfs, funds, commodities,
+           currencies, cryptos, bonds, certificates, fxfutures" */}
+
           <Route path="/forex" element=
             {<Menu page={<SearchPage category="forex" />} />} />
           <Route path="/comodies" element=
             {<Menu page={<SearchPage category="comodies" />} />} />
-          <Route path="/indexies" element=
+          <Route path="/indeces" element=
             {<Menu page={<SearchPage category="indexies" />} />} />
           <Route path="/stocks" element=
             {<Menu page={<SearchPage category="stocks" />} />} />
