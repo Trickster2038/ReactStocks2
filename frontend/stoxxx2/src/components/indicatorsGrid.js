@@ -20,8 +20,6 @@ class IndicatorsGrid extends Component {
             + this.props.symb + "?tag=" + this.props.tag
             + "&interval=" + this.props.interval
 
-        console.log("ind-s for:", this.props.interval)
-
         fetch(url)
             .then(res => res.json())
             .then(
@@ -56,25 +54,26 @@ class IndicatorsGrid extends Component {
 
     render() {
         const { error, error_message, isLoaded, items1 } = this.state;
-        var items = Object.values(this.state.items)
+        let items = structuredClone(Object.values(this.state.items))
         if (error) {
             return <div class="searchlist-result">
                 {/* <p>{this.props.t("error")}: {error_message}</p> */}
-                <p>{this.props.t("empty")}</p>
+                <p>{this.props.t("status.empty")}</p>
             </div>;
         } else if (!isLoaded) {
             return <div class="searchlist-result">
-                <p>{this.props.t("load")}...</p>
+                <p>{this.props.t("status.load")}...</p>
             </div>;
         } else {
             for (let i in items) {
                 items[i].id = i
-                items[i].signal = this.props.t(items[i].signal)
+                // console.log(items[i].signal)
+                items[i].signal = this.props.t(("indicators." + items[i].signal))
             }
             const columns = [
-                { field: 'indicator', headerName: this.props.t("indicator"), flex: 1 },
-                { field: 'signal', headerName: this.props.t("signal"), flex: 1 },
-                { field: 'value', headerName: this.props.t("value"), flex: 1 },
+                { field: 'indicator', headerName: this.props.t("indicators.indicator"), flex: 1 },
+                { field: 'signal', headerName: this.props.t("indicators.signal"), flex: 1 },
+                { field: 'value', headerName: this.props.t("indicators.value"), flex: 1 },
             ]
 
             if (items.length > 0) {
@@ -93,7 +92,7 @@ class IndicatorsGrid extends Component {
             } else {
                 return (
                     <div class="searchlist-result">
-                        <p>{this.props.t("empty")}</p>
+                        <p>{this.props.t("status.empty")}</p>
                     </div>
                 );
             }

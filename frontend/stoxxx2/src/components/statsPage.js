@@ -39,9 +39,9 @@ export default function StatsPage() {
             <TabContext value={tabValue}>
                 <Box sx={{ borderBottom: 1, borderColor: 'divider', p: 0 }}>
                     <TabList onChange={handleChangeTabs} aria-label="lab API tabs example">
-                        <Tab label={t("overview")} value="1" />
-                        <Tab label={t("company-profile")} value="2" />
-                        <Tab label={t("tech-analysis")} value="3" />
+                        <Tab label={t("tabs.overview")} value="1" />
+                        <Tab label={t("tabs.company-profile")} value="2" />
+                        <Tab label={t("tabs.tech-analysis")} value="3" />
                     </TabList>
                 </Box>
                 <TabPanel value="1" sx={{ p: 0 }}>
@@ -99,9 +99,9 @@ export default function StatsPage() {
                                         'aria-label': 'Without label'
                                     }}
                                 >
-                                    <MenuItem value={"daily"}>{t("daily")}</MenuItem>
-                                    <MenuItem value={"weekly"}>{t("weekly")}</MenuItem>
-                                    <MenuItem value={"monthly"}>{t("monthly")}</MenuItem>
+                                    <MenuItem value={"daily"}>{t("interval.daily")}</MenuItem>
+                                    <MenuItem value={"weekly"}>{t("interval.weekly")}</MenuItem>
+                                    <MenuItem value={"monthly"}>{t("interval.monthly")}</MenuItem>
                                 </Select>
                             </FormControl>
                         </div>

@@ -1,44 +1,46 @@
 {
    "select_language": "Select language",
-   "caption0": "Caption EN i18n",
-   "0": "================================",
-   "forex": "Forex",
-   "comodies": "Comodies",
-   "indices": "Indeces",
-   "stocks": "Stocks",
-   "crypto": "Crypto",
-   "etf": "ETF",
-   "obligations": "Bonds",
-   "settings": "Settings",
-   "about": "About",
+   "assets": {
+       "forex": "Forex",
+       "comodies": "Commodities",
+       "indices": "Indices",
+       "stocks": "Stocks",
+       "crypto": "Crypto",
+       "etf": "ETF",
+       "obligations": "Bonds"
+   },
    "search": "Search",
-   "1": "================================",
-   "error": "Error",
-   "empty": "No results found",
-   "load": "Loading",
-   "2": "================================",
-   "name": "Name",
-   "symbol": "Ticker",
-   "exchange": "Exchange",
-   "country": "Country",
-   "3": "================================",
-   "indicator": "Indicator",
-   "signal": "Signal",
-   "value": "Value",
-   "4": "================================",
-   "buy": "Buy",
-   "sell": "Sell",
-   "overbought": "Overbought",
-   "oversold": "Oversold",
-   "less_volatility": "Less Volatility",
-   "high_volatility": "High Volatility",
-   "neutral": "Neutral",
-   "5": "================================",
-   "overview": "Overview",
-   "tech-analysis": "Tech. An.",
-   "company-profile": "Profile",
-   "6": "================================",
-   "daily": "Daily",
-   "monthly": "Monthly",
-   "weekly": "Weekly"
+   "status": {
+       "error": "Error",
+       "empty": "Results not found",
+       "load": "Loading"
+   },
+   "search-table": {
+       "name": "Name",
+       "symbol": "Ticker",
+       "exchange": "Exchange",
+       "country": "Country"
+   },
+   "indicators": {
+       "indicator": "Indicator",
+       "signal": "Signal",
+       "value": "Value",
+       "buy": "Buy",
+       "sell": "Sell",
+       "overbought": "Overbought",
+       "oversold": "Oversold",
+       "less_volatility": "Less volatility",
+       "high_volatility": "High volatility",
+       "neutral": "Neutral"
+   },
+   "tabs": {
+       "overview": "Overview",
+       "tech-analysis": "Tech. An.",
+       "company-profile": "Profile"
+   },
+   "interval": {
+       "daily": "Day",
+       "monthly": "Month",
+       "weekly": "Week"
+   }
 }

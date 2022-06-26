@@ -23,7 +23,6 @@ class SearchGrid extends Component {
             .then(res => res.json())
             .then(
                 (result) => {
-                    console.log("search result: ", result.stocks)
                     this.setState({
                         isLoaded: true,
                         items: result.stocks,
@@ -65,11 +64,11 @@ class SearchGrid extends Component {
         if (error) {
             return <div class="searchlist-result">
                 {/* <p>{this.props.t("error")}: {error_message}</p> */}
-                <p>{this.props.t("empty")}</p>
+                <p>{this.props.t("status.empty")}</p>
             </div>;
         } else if (!isLoaded) {
             return <div class="searchlist-result">
-                <p>{this.props.t("load")}...</p>
+                <p>{this.props.t("status.load")}...</p>
             </div>;
         } else {
             {
@@ -78,10 +77,10 @@ class SearchGrid extends Component {
                 ))
             }
             const columns = [
-                { field: 'name', headerName: this.props.t("name"), flex: 1 },
-                { field: 'symbol', headerName: this.props.t("symbol"), flex: 1 },
-                { field: 'exchange', headerName: this.props.t("exchange"), flex: 1 }, 
-                { field: 'country', headerName: this.props.t("country"), flex: 1 }
+                { field: 'name', headerName: this.props.t("search-table.name"), flex: 1 },
+                { field: 'symbol', headerName: this.props.t("search-table.symbol"), flex: 1 },
+                { field: 'exchange', headerName: this.props.t("search-table.exchange"), flex: 1 }, 
+                { field: 'country', headerName: this.props.t("search-table.country"), flex: 1 }
             ]
 
             if (items.length > 0) {
@@ -101,7 +100,7 @@ class SearchGrid extends Component {
             } else {
                 return (
                     <div class="searchlist-result">
-                        <p>{this.props.t("empty")}</p>
+                        <p>{this.props.t("status.empty")}</p>
                     </div>
                 );
             }

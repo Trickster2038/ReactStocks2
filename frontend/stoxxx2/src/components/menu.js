@@ -66,7 +66,7 @@ class Menu extends React.Component {
                 <ListItemIcon>
                   {obj.icon}
                 </ListItemIcon>
-                <ListItemText primary={this.props.t(obj.name)} />
+                <ListItemText primary={this.props.t("assets." + obj.name)} />
               </ListItemButton>
             </ListItem>
           ))}
@@ -89,12 +89,12 @@ class Menu extends React.Component {
 
         <List>
           {/* <ListItem> */}
-            <ListItemButton>
-              <ListItemIcon>
-                <TranslateIcon />
-              </ListItemIcon>
-              <LanguageSelect />
-            </ListItemButton>
+          <ListItemButton>
+            <ListItemIcon>
+              <TranslateIcon />
+            </ListItemIcon>
+            <LanguageSelect />
+          </ListItemButton>
           {/* </ListItem> */}
         </List>
 
