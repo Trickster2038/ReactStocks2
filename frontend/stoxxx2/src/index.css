@@ -33,6 +33,10 @@ code {
   max-height: calc(40vh);
 }
 
+.trading-view-card {
+  margin-bottom: 16px;
+}
+
 main {
   max-width: 100%;
 }
@@ -40,4 +44,8 @@ main {
 .searhclist-result {
   margin: 'auto';
   margin-top: 16;
+}
+
+.tradingview-widget-container{
+  max-width: 100px;
 }
