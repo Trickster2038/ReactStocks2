@@ -32,5 +32,8 @@
    "oversold": "Oversold",
    "less_volatility": "Less Volatility",
    "high_volatility": "High Volatility",
-   "neutral": "Neutral"
+   "neutral": "Neutral",
+   "5": "================================",
+   "overview": "Overview",
+   "tech-analysis": "Tech. An."
 }
