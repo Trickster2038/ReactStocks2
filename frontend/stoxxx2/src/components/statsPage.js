@@ -37,16 +37,16 @@ export default function StatsPage() {
     // console.log("banner")
 
     return (
-        <Box sx={{ width: '100%', typography: 'body1' }}>
+        <Box sx={{ width: '100%', typography: 'body1', p: 0 }}>
             <TabContext value={tabValue}>
-                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                <Box sx={{ borderBottom: 1, borderColor: 'divider', p: 0 }}>
                     <TabList onChange={handleChangeTabs} aria-label="lab API tabs example">
                         <Tab label={t("overview")} value="1" />
                         <Tab label={t("company-profile")} value="2" />
                         <Tab label={t("tech-analysis")} value="3" />
                     </TabList>
                 </Box>
-                <TabPanel value="1">
+                <TabPanel value="1" sx={{ p: 0 }}>
                     <div id="trading-view-frame" class="tab-panel">
                         <div class="trading-view-card">
                             <SymbolInfo
@@ -78,7 +78,7 @@ export default function StatsPage() {
                         </div>
                     </div>
                 </TabPanel>
-                <TabPanel value="2">
+                <TabPanel value="2" sx={{ p: 0 }}>
                     <div class="tab-panel">
                         <CompanyProfile
                             widgetProps={{
@@ -89,7 +89,7 @@ export default function StatsPage() {
                             }} />
                     </div>
                 </TabPanel>
-                <TabPanel value="3">
+                <TabPanel value="3" sx={{ p: 0 }}>
                     <div class="tab-panel">
                         <div>
                             <FormControl style={{ width: "100%" }}>

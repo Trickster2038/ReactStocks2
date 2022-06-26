@@ -42,6 +42,7 @@ code {
   width: calc(5% + 650px); /*a trick to save right border*/
   max-width: calc(100%);
   margin: auto;
+  margin-top: 16px;
   /* margin-top: 16px; */
 }
 
@@ -51,6 +52,7 @@ code {
 
 main {
   max-width: 100%;
+  padding: 0;
 }
 
 .searhclist-result {

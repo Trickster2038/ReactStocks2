@@ -97,12 +97,12 @@ class Menu extends React.Component {
 
         <List>
           {/* <ListItem> */}
-          <ListItemButton>
-            <ListItemIcon>
-              <TranslateIcon />
-            </ListItemIcon>
-            <LanguageSelect />
-          </ListItemButton>
+            <ListItemButton>
+              <ListItemIcon>
+                <TranslateIcon />
+              </ListItemIcon>
+              <LanguageSelect />
+            </ListItemButton>
           {/* </ListItem> */}
         </List>
 
@@ -173,7 +173,7 @@ class Menu extends React.Component {
         <Box
           component="main"
           sx={{
-            flexGrow: 1, p: 3, width: {
+            flexGrow: 1, p: 2, width: {
               sm: `calc(100% - ${drawerWidth}px)`
             }
           }}

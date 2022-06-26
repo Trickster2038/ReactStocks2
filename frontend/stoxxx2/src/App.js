@@ -11,48 +11,58 @@ import SearchPage from './components/searchPage';
 import React from 'react';
 import StatsPage from './components/statsPage';
 
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
 export const ApiContext = React.createContext('light');
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
 
 function App() {
   // const { t } = useTranslation();
 
   return (
-    <div>
-      <Toolbar />
-      <div className="App">
+    <ThemeProvider theme={darkTheme}>
+      <div>
+        <Toolbar />
+        <div className="App">
 
-        <Routes>
-          <Route path="/settings" element={<Menu page={<SettingsPage />} />} />
-          <Route path="/about" element={<Menu page={<AboutPage />} />} />
+          <Routes>
+            <Route path="/settings" element={<Menu page={<SettingsPage />} />} />
+            <Route path="/about" element={<Menu page={<AboutPage />} />} />
 
-          {/* "indices, stocks, etfs, funds, commodities,
+            {/* "indices, stocks, etfs, funds, commodities,
            currencies, cryptos, bonds, certificates, fxfutures" */}
 
-          <Route path="/forex" element=
-            {<Menu page={<SearchPage category="currencies" />} />} />
-          <Route path="/comodies" element=
-            {<Menu page={<SearchPage category="commodities" />} />} />
-          <Route path="/indices" element=
-            {<Menu page={<SearchPage category="indices" />} />} />
-          <Route path="/stocks" element=
-            {<Menu page={<SearchPage category="stocks" />} />} />
-          <Route path="/crypto" element=
-            {<Menu page={<SearchPage category="cryptos" />} />} />
-          <Route path="/etf" element=
-            {<Menu page={<SearchPage category="etfs" />} />} />
-          <Route path="/obligations" element=
-            {<Menu page={<SearchPage category="bonds" />} />} />
+            <Route path="/forex" element=
+              {<Menu page={<SearchPage category="currencies" />} />} />
+            <Route path="/comodies" element=
+              {<Menu page={<SearchPage category="commodities" />} />} />
+            <Route path="/indices" element=
+              {<Menu page={<SearchPage category="indices" />} />} />
+            <Route path="/stocks" element=
+              {<Menu page={<SearchPage category="stocks" />} />} />
+            <Route path="/crypto" element=
+              {<Menu page={<SearchPage category="cryptos" />} />} />
+            <Route path="/etf" element=
+              {<Menu page={<SearchPage category="etfs" />} />} />
+            <Route path="/obligations" element=
+              {<Menu page={<SearchPage category="bonds" />} />} />
 
-          <Route path="/" element={<AboutPage />} />
-          <Route path="/stats" element={<Menu page={<StatsPage />} />} />
-        </Routes>
+            <Route path="/" element={<AboutPage />} />
+            <Route path="/stats" element={<Menu page={<StatsPage />} />} />
+          </Routes>
 
-        <div>
-          <Menu />
+          <div>
+            <Menu />
+          </div>
+
         </div>
-
       </div>
-    </div>
+    </ThemeProvider>
   );
 }
 
