@@ -9,13 +9,17 @@ class StatsPage extends Component {
     }
 
     render() {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const symb = urlParams.get('symb')
         return (
             <div>
+                {console.log("tradingViewLocale: ", this.props.i18n.language)}
                 <div id="trading-view-frame">
                     <TradingViewWidget
-                        // symbol=<reads forms param "?symbol=">
+                        symbol={symb}
                         theme={Themes.LIGHT}
-                        locale="ru"
+                        locale={this.props.i18n.language}
                         autosize
                     />
                 </div>

@@ -52,7 +52,7 @@ class SearchList extends Component {
     }
 
     cellClickHandler(params) {
-        const url = '/stats?symbol=' + params.row.symbol
+        const url = '/stats?symb=' + params.row.symbol
             + '&exchange=' + params.row.exchange
             + '&tag=' + params.row.tag
             + '&back=' + params.row.pair_type
@@ -77,10 +77,10 @@ class SearchList extends Component {
                 ))
             }
             const columns = [
-                { field: 'name', headerName: this.props.t("name"), width: 200 },
-                { field: 'symbol', headerName: this.props.t("symbol") },
-                { field: 'exchange', headerName: this.props.t("exchange") }, ,
-                { field: 'country', headerName: this.props.t("country"), width: 200 }
+                { field: 'name', headerName: this.props.t("name"), flex: 1 },
+                { field: 'symbol', headerName: this.props.t("symbol"), flex: 1 },
+                { field: 'exchange', headerName: this.props.t("exchange"), flex: 1 }, ,
+                { field: 'country', headerName: this.props.t("country"), flex: 1 }
             ]
 
             if (items.length > 0) {
