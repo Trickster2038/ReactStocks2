@@ -53,6 +53,7 @@ class SearchList extends Component {
 
     cellClickHandler(params) {
         const url = '/stats?symbol=' + params.row.symbol
+            + '&exchange=' + params.row.exchange
             + '&tag=' + params.row.tag
             + '&back=' + params.row.pair_type
         window.location.replace(url);
@@ -86,11 +87,12 @@ class SearchList extends Component {
                 return (
                     <div id="datagrid" class="searchlist-result" style={{
                         margin: 'auto',
-                        marginTop: 16, height: (items.length + 1) * 56
+                        marginTop: 16, height: window.innerHeight*0.75 //(items.length + 1) * 56
                     }}>
                         <DataGrid
                             rows={items}
                             columns={columns}
+                            pageSize={Math.round(window.innerHeight*0.75 / 52)-2}
                             onCellClick={this.cellClickHandler}
                         />
                     </div>

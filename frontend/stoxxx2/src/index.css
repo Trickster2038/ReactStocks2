@@ -23,6 +23,16 @@ code {
   margin: auto;
 }
 
+#trading-view-frame {
+  width: 650px;
+  max-width: calc(100%);
+  margin: auto;
+  padding-top: 16px;
+  padding: 0px;
+  height: 300px;
+  max-height: calc(40vh);
+}
+
 main {
   max-width: 100%;
 }

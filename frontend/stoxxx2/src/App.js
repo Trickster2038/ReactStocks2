@@ -9,6 +9,7 @@ import SettingsPage from './components/settingsPage';
 import AboutPage from './components/aboutPage';
 import SearchPage from './components/searchPage';
 import React from 'react';
+import StatsPage from './components/statsPage';
 
 export const ApiContext = React.createContext('light');
 
@@ -24,14 +25,14 @@ function App() {
           <Route path="/settings" element={<Menu page={<SettingsPage />} />} />
           <Route path="/about" element={<Menu page={<AboutPage />} />} />
 
-           {/* "indices, stocks, etfs, funds, commodities,
+          {/* "indices, stocks, etfs, funds, commodities,
            currencies, cryptos, bonds, certificates, fxfutures" */}
 
           <Route path="/forex" element=
             {<Menu page={<SearchPage category="currencies" />} />} />
           <Route path="/comodies" element=
             {<Menu page={<SearchPage category="commodities" />} />} />
-          <Route path="/indeces" element=
+          <Route path="/indices" element=
             {<Menu page={<SearchPage category="indices" />} />} />
           <Route path="/stocks" element=
             {<Menu page={<SearchPage category="stocks" />} />} />
@@ -43,6 +44,7 @@ function App() {
             {<Menu page={<SearchPage category="bonds" />} />} />
 
           <Route path="/" element={<AboutPage />} />
+          <Route path="/stats" element={<Menu page={<StatsPage />} />} />
         </Routes>
 
         <div>
