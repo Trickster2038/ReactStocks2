@@ -35,5 +35,10 @@
    "neutral": "Neutral",
    "5": "================================",
    "overview": "Overview",
-   "tech-analysis": "Tech. An."
+   "tech-analysis": "Tech. An.",
+   "company-profile": "Profile",
+   "6": "================================",
+   "daily": "Daily",
+   "monthly": "Monthly",
+   "weekly": "Weekly"
 }

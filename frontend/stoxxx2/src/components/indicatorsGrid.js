@@ -20,6 +20,8 @@ class IndicatorsGrid extends Component {
             + this.props.symb + "?tag=" + this.props.tag
             + "&interval=" + this.props.interval
 
+        console.log("ind-s for:", this.props.interval)
+
         fetch(url)
             .then(res => res.json())
             .then(
@@ -48,24 +50,14 @@ class IndicatorsGrid extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.query !== prevProps.query) {
+        if (this.props.interval !== prevProps.interval) {
             this.call_api()
         }
     }
 
-    // cellClickHandler(params) {
-    //     const url = '/stats?symb=' + params.row.symbol
-    //         + '&exchange=' + params.row.exchange
-    //         + '&tag=' + params.row.tag
-    //         + '&back=' + params.row.pair_type
-    //     window.location.replace(url);
-    // }
-
     render() {
-        // console.log("render indicators", this.state.items)
         const { error, error_message, isLoaded, items1 } = this.state;
         var items = Object.values(this.state.items)
-        // console.log(Object.values(items)[1])
         if (error) {
             return <div class="searchlist-result">
                 {/* <p>{this.props.t("error")}: {error_message}</p> */}
@@ -76,7 +68,7 @@ class IndicatorsGrid extends Component {
                 <p>{this.props.t("load")}...</p>
             </div>;
         } else {
-            for(let i in items){
+            for (let i in items) {
                 items[i].id = i
                 items[i].signal = this.props.t(items[i].signal)
             }

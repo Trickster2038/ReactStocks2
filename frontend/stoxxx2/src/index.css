@@ -23,14 +23,26 @@ code {
   margin: auto;
 }
 
-#trading-view-frame {
+/* #trading-view-frame {
   width: 650px;
   max-width: calc(100%);
   margin: auto;
   padding-top: 16px;
   padding: 0px;
-  height: 300px;
-  max-height: calc(40vh);
+  /* height: 300px; */
+  /* max-height: calc(40vh); */
+/* }  */
+
+#trading-view-advanced {
+  height: 480px;
+  max-height: calc(60vh);
+}
+
+.tab-panel {
+  width: calc(5% + 650px); /*a trick to save right border*/
+  max-width: calc(100%);
+  margin: auto;
+  /* margin-top: 16px; */
 }
 
 .trading-view-card {
@@ -46,6 +58,6 @@ main {
   margin-top: 16;
 }
 
-.tradingview-widget-container{
+.tradingview-widget-container {
   max-width: 100px;
 }

@@ -7,6 +7,7 @@ import TabPanel from '@mui/lab/TabPanel';
 
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
+import FormControl from '@mui/material/FormControl';
 
 import IndicatorsGrid from "./indicatorsGrid";
 import TradingViewWidget, { Themes } from "react-tradingview-widget";
@@ -46,8 +47,7 @@ export default function StatsPage() {
                     </TabList>
                 </Box>
                 <TabPanel value="1">
-
-                    <div id="trading-view-frame">
+                    <div id="trading-view-frame" class="tab-panel">
                         <div class="trading-view-card">
                             <SymbolInfo
                                 widgetProps={{
@@ -58,7 +58,7 @@ export default function StatsPage() {
                                 }}
                             />
                         </div>
-                        <div class="trading-view-card">
+                        <div id="trading-view-advanced" class="trading-view-card">
                             <TradingViewWidget
                                 symbol={symb}
                                 theme={Themes.LIGHT}
@@ -79,7 +79,7 @@ export default function StatsPage() {
                     </div>
                 </TabPanel>
                 <TabPanel value="2">
-                    <div>
+                    <div class="tab-panel">
                         <CompanyProfile
                             widgetProps={{
                                 "colorTheme": "Light",
@@ -90,21 +90,27 @@ export default function StatsPage() {
                     </div>
                 </TabPanel>
                 <TabPanel value="3">
-                    <div>
-                        <Select
-                            value={interval}
-                            onChange={handleChangeSelect}
-                            defaultValue={"daily"}
-                            inputProps={{ 'aria-label': 'Without label' }}
-                        >
-                            <MenuItem value={"daily"}>Daily</MenuItem>
-                            <MenuItem value={"weekly"}>Weekly</MenuItem>
-                            <MenuItem value={"monthly"}>Monthly</MenuItem>
-                        </Select>
-                    </div>
-                    <div>
-                        {/* <p>{interval}</p> */}
-                        <IndicatorsGrid symb={symb} tag={tag} interval="daily" />
+                    <div class="tab-panel">
+                        <div>
+                            <FormControl style={{ width: "100%" }}>
+                                <Select
+                                    value={interval}
+                                    onChange={handleChangeSelect}
+                                    defaultValue={"daily"}
+                                    inputProps={{
+                                        'aria-label': 'Without label'
+                                    }}
+                                >
+                                    <MenuItem value={"daily"}>{t("daily")}</MenuItem>
+                                    <MenuItem value={"weekly"}>{t("weekly")}</MenuItem>
+                                    <MenuItem value={"monthly"}>{t("monthly")}</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </div>
+                        <div>
+                            {/* <p>{interval}</p> */}
+                            <IndicatorsGrid symb={symb} tag={tag} interval={interval} />
+                        </div>
                     </div>
                 </TabPanel>
             </TabContext>
