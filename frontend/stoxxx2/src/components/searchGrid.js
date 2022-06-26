@@ -2,7 +2,7 @@ import { Component } from "react";
 import { DataGrid } from '@mui/x-data-grid';
 import { withTranslation } from 'react-i18next';
 
-class SearchList extends Component {
+class SearchGrid extends Component {
 
     constructor(props) {
         super(props);
@@ -23,6 +23,7 @@ class SearchList extends Component {
             .then(res => res.json())
             .then(
                 (result) => {
+                    console.log("search result: ", result.stocks)
                     this.setState({
                         isLoaded: true,
                         items: result.stocks,
@@ -79,7 +80,7 @@ class SearchList extends Component {
             const columns = [
                 { field: 'name', headerName: this.props.t("name"), flex: 1 },
                 { field: 'symbol', headerName: this.props.t("symbol"), flex: 1 },
-                { field: 'exchange', headerName: this.props.t("exchange"), flex: 1 }, ,
+                { field: 'exchange', headerName: this.props.t("exchange"), flex: 1 }, 
                 { field: 'country', headerName: this.props.t("country"), flex: 1 }
             ]
 
@@ -109,4 +110,4 @@ class SearchList extends Component {
 
 }
 
-export default withTranslation()(SearchList);
+export default withTranslation()(SearchGrid);

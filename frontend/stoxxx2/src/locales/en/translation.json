@@ -20,5 +20,9 @@
    "name": "Name",
    "symbol": "Ticker",
    "exchange": "Exchange",
-   "country": "Country"
+   "country": "Country",
+
+   "indicator": "Indicator",
+   "signal": "Signal",
+   "value": "Value"
 }

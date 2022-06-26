@@ -4,7 +4,7 @@ import { Divider, Paper, InputBase } from "@mui/material";
 
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
-import SearchList from "./searchList";
+import SearchGrid from "./searchGrid";
 
 class SearchPage extends Component {
 
@@ -33,7 +33,7 @@ class SearchPage extends Component {
                     <SearchIcon />
                 </Paper>
                 <div id="searchlist">
-                    <SearchList query={this.state.query}
+                    <SearchGrid query={this.state.query}
                         category={this.props.category} />
                 </div>
             </div>

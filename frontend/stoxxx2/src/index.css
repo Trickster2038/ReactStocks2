@@ -19,7 +19,7 @@ code {
 
 #searchpage {
   width: 650px;
-  max-width: calc(100% - 16px);
+  max-width: calc(100%);
   margin: auto;
 }
 

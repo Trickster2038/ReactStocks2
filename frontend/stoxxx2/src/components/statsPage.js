@@ -2,6 +2,7 @@
 import TradingViewWidget, { Themes } from "react-tradingview-widget";
 import { withTranslation } from 'react-i18next';
 import { Component } from "react";
+import IndicatorsGrid from "./indicatorsGrid";
 
 class StatsPage extends Component {
     constructor(props) {
@@ -12,9 +13,10 @@ class StatsPage extends Component {
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const symb = urlParams.get('symb')
+        const tag = urlParams.get('tag')
         return (
             <div>
-                {console.log("tradingViewLocale: ", this.props.i18n.language)}
+                {/* {console.log("tradingViewLocale: ", this.props.i18n.language)} */}
                 <div id="trading-view-frame">
                     <TradingViewWidget
                         symbol={symb}
@@ -22,6 +24,9 @@ class StatsPage extends Component {
                         locale={this.props.i18n.language}
                         autosize
                     />
+                </div>
+                <div>
+                    <IndicatorsGrid symb={symb} tag={tag} interval="daily" />
                 </div>
             </div>
         )
