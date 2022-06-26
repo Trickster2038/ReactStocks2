@@ -18,6 +18,7 @@ import TranslateIcon from '@mui/icons-material/Translate';
 
 import { withTranslation } from 'react-i18next';
 import LanguageSelect from './languageSelect';
+import { ThemeContext1 } from '../App';
 
 const drawerWidth = 240;
 
@@ -38,6 +39,7 @@ class Menu extends React.Component {
   };
 
   render() {
+    console.log('context', this.context)
 
     const menu_entries_assets =
       [{ name: 'forex', icon: <ForexIcon /> },
@@ -50,22 +52,12 @@ class Menu extends React.Component {
 
     const menu_entries_bottom = [
       // [{ name: 'settings', icon: <SettingsIcon /> },
-      { name: 'about', icon: <InfoIcon /> },];
+      // { name: 'about', icon: <InfoIcon /> },
+    ];
 
     const drawer = (
       <div>
         <Toolbar />
-        {/* <Toolbar>
-          <IconButton
-            edge="start"
-            onClick={this.handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
-          >
-            <TranslateIcon />
-          </IconButton>
-          <LanguageSelect />
-        </Toolbar> */}
-
         <Divider />
         <List>
           {menu_entries_assets.map((obj, index) => (
@@ -80,7 +72,7 @@ class Menu extends React.Component {
           ))}
         </List>
         <Divider />
-        <List>
+        {/* <List>
           {menu_entries_bottom.map((obj, index) => (
             <ListItem key={obj.translate} disablePadding>
               <ListItemButton onClick={() => this.onListClicked(obj.name)}>
@@ -92,8 +84,8 @@ class Menu extends React.Component {
             </ListItem>
 
           ))}
-        </List>
-        <Divider />
+        </List> */}
+        {/* <Divider /> */}
 
         <List>
           {/* <ListItem> */}
@@ -179,6 +171,7 @@ class Menu extends React.Component {
           }}
         >
           {this.props.page}
+          {this.props.children}
         </Box>
         {/* </div> */}
       </Box>

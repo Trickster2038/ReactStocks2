@@ -13,11 +13,15 @@ import StatsPage from './components/statsPage';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-export const ApiContext = React.createContext('light');
-
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
+  },
+});
+
+const lightTheme = createTheme({
+  palette: {
+    mode: 'light',
   },
 });
 
@@ -25,20 +29,20 @@ function App() {
   // const { t } = useTranslation();
 
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={lightTheme}>
       <div>
         <Toolbar />
         <div className="App">
-
+        <Menu>
           <Routes>
+            
             <Route path="/settings" element={<Menu page={<SettingsPage />} />} />
             <Route path="/about" element={<Menu page={<AboutPage />} />} />
 
             {/* "indices, stocks, etfs, funds, commodities,
            currencies, cryptos, bonds, certificates, fxfutures" */}
 
-            <Route path="/forex" element=
-              {<Menu page={<SearchPage category="currencies" />} />} />
+            <Route path="/forex" element={<SearchPage category="currencies" />}/>
             <Route path="/comodies" element=
               {<Menu page={<SearchPage category="commodities" />} />} />
             <Route path="/indices" element=
@@ -54,8 +58,9 @@ function App() {
 
             <Route path="/" element={<AboutPage />} />
             <Route path="/stats" element={<Menu page={<StatsPage />} />} />
+            
           </Routes>
-
+          </Menu>
           <div>
             <Menu />
           </div>
