@@ -14,8 +14,10 @@ import IndexiesEtfIcon from '@mui/icons-material/ShowChart';
 import CryptoIcon from '@mui/icons-material/CurrencyBitcoin';
 import SettingsIcon from '@mui/icons-material/SettingsApplications';
 import InfoIcon from '@mui/icons-material/Info';
+import TranslateIcon from '@mui/icons-material/Translate';
 
 import { withTranslation } from 'react-i18next';
+import LanguageSelect from './languageSelect';
 
 const drawerWidth = 240;
 
@@ -46,13 +48,24 @@ class Menu extends React.Component {
       { name: 'etf', icon: <IndexiesEtfIcon /> },
       { name: 'obligations', icon: <StocksOblIcon /> }];
 
-    const menu_entries_bottom =
-      [{ name: 'settings', icon: <SettingsIcon /> },
+    const menu_entries_bottom = [
+      // [{ name: 'settings', icon: <SettingsIcon /> },
       { name: 'about', icon: <InfoIcon /> },];
 
     const drawer = (
       <div>
         <Toolbar />
+        {/* <Toolbar>
+          <IconButton
+            edge="start"
+            onClick={this.handleDrawerToggle}
+            sx={{ mr: 2, display: { sm: 'none' } }}
+          >
+            <TranslateIcon />
+          </IconButton>
+          <LanguageSelect />
+        </Toolbar> */}
+
         <Divider />
         <List>
           {menu_entries_assets.map((obj, index) => (
@@ -80,6 +93,20 @@ class Menu extends React.Component {
 
           ))}
         </List>
+        <Divider />
+
+        <List>
+          {/* <ListItem> */}
+          <ListItemButton>
+            <ListItemIcon>
+              <TranslateIcon />
+            </ListItemIcon>
+            <LanguageSelect />
+          </ListItemButton>
+          {/* </ListItem> */}
+        </List>
+
+
       </div>
     );
 

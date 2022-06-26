@@ -19,7 +19,7 @@ const LanguageSelect = () => {
   } else {
     var selected = "en";//localStorage.getItem("i18nextLng") || "en";
   }
-  console.log(localStorage.getItem("i18nextLng"))
+  // console.log(localStorage.getItem("i18nextLng"))
   const { t } = useTranslation();
 
   const [menuAnchor, setMenuAnchor] = React.useState(null);
@@ -28,7 +28,8 @@ const LanguageSelect = () => {
   }, [menuAnchor, selected]);
 
   return (
-    <div className="d-flex justify-content-end align-items-center language-select-root">
+    <div id="language-selector" className="d-flex justify-content-end align-items-center language-select-root">
+      {/* <span>{t("language: ")}</span> */}
       <Button onClick={({ currentTarget }) => setMenuAnchor(currentTarget)}>
         {languageMap[selected].label}
         <ArrowDropDown fontSize="small" />

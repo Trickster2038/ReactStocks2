@@ -58,6 +58,10 @@ main {
   margin-top: 16;
 }
 
-.tradingview-widget-container {
+/* .tradingview-widget-container {
   max-width: 100px;
+} */
+
+#language-selector{
+  width: 100%;
 }
