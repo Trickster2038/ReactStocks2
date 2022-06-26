@@ -34,8 +34,6 @@ export default function StatsPage() {
     const symb = urlParams.get('symb')
     const tag = urlParams.get('tag')
 
-    // console.log("banner")
-
     return (
         <Box sx={{ width: '100%', typography: 'body1', p: 0 }}>
             <TabContext value={tabValue}>

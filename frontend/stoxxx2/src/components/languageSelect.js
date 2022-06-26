@@ -17,9 +17,8 @@ const LanguageSelect = () => {
     localStorage.getItem("i18nextLng") === "ru-RU") {
     var selected = "ru";
   } else {
-    var selected = "en";//localStorage.getItem("i18nextLng") || "en";
+    var selected = "en";
   }
-  // console.log(localStorage.getItem("i18nextLng"))
   const { t } = useTranslation();
 
   const [menuAnchor, setMenuAnchor] = React.useState(null);
@@ -55,8 +54,6 @@ const LanguageSelect = () => {
                 button
                 key={item}
                 onClick={() => {
-                  //console.log("lang: ", item);
-                  //console.log("prev lang: ", localStorage.getItem("i18nextLng"));
                   i18next.changeLanguage(item);
                   setMenuAnchor(null);
                 }}

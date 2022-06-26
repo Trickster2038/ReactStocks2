@@ -161,7 +161,6 @@ class Menu extends React.Component {
             {drawer}
           </Drawer>
         </Box>
-        {/* <div id="pageplace"> */}
         <Box
           component="main"
           sx={{
@@ -170,10 +169,8 @@ class Menu extends React.Component {
             }
           }}
         >
-          {this.props.page}
           {this.props.children}
         </Box>
-        {/* </div> */}
       </Box>
     );
   }

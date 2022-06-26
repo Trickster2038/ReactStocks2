@@ -1,8 +1,7 @@
 import { Component } from "react"
 import { withTranslation } from 'react-i18next';
-import { Divider, Paper, InputBase } from "@mui/material";
+import { Paper, InputBase } from "@mui/material";
 
-import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import SearchGrid from "./searchGrid";
 

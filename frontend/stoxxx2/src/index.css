@@ -12,13 +12,15 @@ code {
     monospace;
 }
 
+/* =============================== */
+
 .language-select {
   float: right;
   margin-top: -35px;
 }
 
 #searchpage {
-  width: 650px;
+  width: 640px;
   max-width: calc(100%);
   margin: auto;
 }
@@ -39,7 +41,7 @@ code {
 }
 
 .tab-panel {
-  width: calc(5% + 650px); /*a trick to save right border*/
+  width: calc(5% + 640px); /*a trick to save right border*/
   max-width: calc(100%);
   margin: auto;
   margin-top: 16px;

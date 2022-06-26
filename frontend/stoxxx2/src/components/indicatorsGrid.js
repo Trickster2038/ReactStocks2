@@ -26,7 +26,6 @@ class IndicatorsGrid extends Component {
             .then(res => res.json())
             .then(
                 (result) => {
-                    // console.log(result.indicators)
                     this.setState({
                         isLoaded: true,
                         items: result.indicators,
@@ -88,7 +87,6 @@ class IndicatorsGrid extends Component {
                             rows={items}
                             columns={columns}
                             pageSize={12}
-                        // onCellClick={this.cellClickHandler}
                         />
                     </div>
                 );
