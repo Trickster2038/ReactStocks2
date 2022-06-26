@@ -10,7 +10,7 @@ import TradingViewWidget, { Themes } from "react-tradingview-widget";
 
 import { useTranslation } from 'react-i18next';
 
-export default function StatsPage() {
+export default function StatsTabs() {
     const [value, setValue] = React.useState('1');
 
     const handleChange = (event, newValue) => {

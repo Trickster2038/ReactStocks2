@@ -11,13 +11,13 @@ cors = CORS(app)
 # currencies, cryptos, bonds, certificates, fxfutures"
 
 def serve_main_data(x):
-    x.country = x.country or " - "
+    x.country = x.country or "N/A"
     country = x.country.split()
     x.country = ""
     for c in country:
         x.country += c[0].upper() + c[1:] + " "
     if x.exchange == "":
-        x.exchange = " - "
+        x.exchange = "N/A"
     return x
 
 
@@ -56,7 +56,7 @@ def stats(symbol):
     info = json.loads(str(search_result))
     indicators = json.loads(str(search_result
         .retrieve_technical_indicators(interval=interval).T.to_json()))
-    app.logger.info(json.dumps(indicators, indent=2))
+    # app.logger.info(json.dumps(indicators, indent=2))
     return {'info': info, 'indicators': indicators}
 
 if __name__ == '__main__':

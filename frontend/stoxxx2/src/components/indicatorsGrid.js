@@ -24,7 +24,7 @@ class IndicatorsGrid extends Component {
             .then(res => res.json())
             .then(
                 (result) => {
-                    console.log(result.indicators)
+                    // console.log(result.indicators)
                     this.setState({
                         isLoaded: true,
                         items: result.indicators,
@@ -62,14 +62,14 @@ class IndicatorsGrid extends Component {
     // }
 
     render() {
-        console.log("render indicators", this.state.items)
+        // console.log("render indicators", this.state.items)
         const { error, error_message, isLoaded, items1 } = this.state;
         var items = Object.values(this.state.items)
         // console.log(Object.values(items)[1])
         if (error) {
             return <div class="searchlist-result">
                 {/* <p>{this.props.t("error")}: {error_message}</p> */}
-                <p>{this.props.t("empty1")}</p>
+                <p>{this.props.t("empty")}</p>
             </div>;
         } else if (!isLoaded) {
             return <div class="searchlist-result">
@@ -78,6 +78,7 @@ class IndicatorsGrid extends Component {
         } else {
             for(let i in items){
                 items[i].id = i
+                items[i].signal = this.props.t(items[i].signal)
             }
             const columns = [
                 { field: 'indicator', headerName: this.props.t("indicator"), flex: 1 },
@@ -102,7 +103,7 @@ class IndicatorsGrid extends Component {
             } else {
                 return (
                     <div class="searchlist-result">
-                        <p>{this.props.t("empty2")}</p>
+                        <p>{this.props.t("empty")}</p>
                     </div>
                 );
             }

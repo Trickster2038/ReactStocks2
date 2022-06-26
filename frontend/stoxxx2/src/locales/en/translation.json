@@ -1,7 +1,7 @@
 {
    "select_language": "Select language",
    "caption0": "Caption EN i18n",
-
+   "0": "================================",
    "forex": "Forex",
    "comodies": "Comodies",
    "indices": "Indeces",
@@ -12,17 +12,25 @@
    "settings": "Settings",
    "about": "About",
    "search": "Search",
-
+   "1": "================================",
    "error": "Error",
    "empty": "No results found",
    "load": "Loading",
-
+   "2": "================================",
    "name": "Name",
    "symbol": "Ticker",
    "exchange": "Exchange",
    "country": "Country",
-
+   "3": "================================",
    "indicator": "Indicator",
    "signal": "Signal",
-   "value": "Value"
+   "value": "Value",
+   "4": "================================",
+   "buy": "Buy",
+   "sell": "Sell",
+   "overbought": "Overbought",
+   "oversold": "Oversold",
+   "less_volatility": "Less Volatility",
+   "high_volatility": "High Volatility",
+   "neutral": "Neutral"
 }
