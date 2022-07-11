@@ -1,6 +1,6 @@
 # React Stocks 2
 
-## Youtube demo
+## YouTube demo
 
 [https://www.youtube.com/watch?v=q8MXP6IHUsY](https://www.youtube.com/watch?v=q8MXP6IHUsY)
 
